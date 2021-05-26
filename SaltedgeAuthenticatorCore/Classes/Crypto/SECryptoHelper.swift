@@ -50,9 +50,7 @@ public struct SECryptoHelper {
       - tag: An unique identifier by which was created the private key
     */
     public static func privateKeyToPem(tag: KeyTag) -> String? {
-        guard let encodedKey = try? privateKeyData(for: tag.privateTag).base64EncodedString() else { return nil }
-
-        return "-----BEGIN PRIVATE KEY-----\n\(encodedKey)\n-----END PRIVATE KEY-----\n"
+        return try? privateKeyData(for: tag.privateTag).string
     }
 
     /*
@@ -62,9 +60,7 @@ public struct SECryptoHelper {
       - tag: An unique identifier by which was created the public key
     */
     public static func publicKeyToPem(tag: KeyTag) -> String? {
-        guard let encodedKey = try? privateKeyData(for: tag).base64EncodedString() else { return nil }
-
-        return "-----BEGIN PUBLIC KEY-----\n\(encodedKey)\n-----END PUBLIC KEY-----\n"
+        return try? publicKeyData(for: tag).string
     }
 
     /*

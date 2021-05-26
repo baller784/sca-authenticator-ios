@@ -42,7 +42,7 @@ enum ConnectionStatus: String {
     dynamic var createdAt: Date = Date()
     dynamic var updatedAt: Date = Date()
 
-    dynamic var providerId: Int?
+    dynamic var providerId: String?
     dynamic var publicKey: String = ""
     dynamic var apiVersion: String = "1"
 
